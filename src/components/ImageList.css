@@ -1,0 +1,21 @@
+.image-list {
+    display: grid;
+    /* auto-fill: the number of pictures of each row will be decided by the browser size.
+       205px: minimum width size of each picutre.  */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 0 10px;
+    /* each row could have more space, concerning its height, 150px 
+       but, this results in that a picture may override other pictures. */
+    grid-auto-rows: 10px;
+}
+
+.image-list img {
+    width: 250px;
+    /* if a picture needs more than 1 row, allocate more rows to it,
+       to prevent it from being overwritten by other pictures. 
+       It, however, allows small pictures to have more space than they neeed. 
+       The best solution is to measure each picture size, and 
+       allocate space to them based on their size, which can be implemented 
+       by React, JavaScript. */
+    grid-row-end: span 2;
+}
